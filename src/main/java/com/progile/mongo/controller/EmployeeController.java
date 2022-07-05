@@ -2,10 +2,9 @@ package com.progile.mongo.controller;
 
 import com.progile.mongo.model.Employee;
 import com.progile.mongo.repository.EmployeeRepository;
+import com.progile.mongo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,11 +13,15 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    EmployeeService employeeService;
 
     @GetMapping("/")
     public List<Employee> getAll() {
-        return employeeRepository.findAll();
+        return employeeService.getAll();
     }
 
+    @PostMapping("/")
+    public Employee addEmployee(@RequestBody Employee emp){
+        return employeeService.addEmployee(emp);
+    }
 }
