@@ -6,3 +6,6 @@ https://java.hotexamples.com/examples/org.springframework.data.mongodb.core/Mong
 
 Spring Boot + MongoDB Auto-Generated Field Example
 https://www.javaguides.net/2019/12/spring-boot-mongodb-auto-generated-field-example.html
+
+I get idea how to fix the listener issue
+https://www.baeldung.com/spring-boot-mongodb-auto-generated-field
