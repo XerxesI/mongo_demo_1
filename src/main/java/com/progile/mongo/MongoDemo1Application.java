@@ -37,15 +37,15 @@ public class MongoDemo1Application implements CommandLineRunner {
 		Employee e4 = new Employee("IRON", "MAN", new Address("Malibu", "Near Ocean", "CA", "CA", 1234), 12000);
 		Employee e5 = new Employee("PROFIT", "MAN", null, 6000);
 
-		e1.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+//		e1.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e1);
-		e2.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+//		e2.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e2);
-		e3.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+//		e3.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e3);
-		e4.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+//		e4.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e4);
-		e5.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+//		e5.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e5);
 
 		employeeRepository.insert(listOfEmployees);

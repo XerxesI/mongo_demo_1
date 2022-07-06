@@ -21,7 +21,7 @@ public class EmployeeService {
     }
 
     public Employee addEmployee(Employee emp) {
-        emp.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
+//        emp.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
         return employeeRepository.insert(emp);
     }
 }
