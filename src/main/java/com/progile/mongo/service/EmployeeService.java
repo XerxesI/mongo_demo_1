@@ -13,11 +13,15 @@ public class EmployeeService {
     @Autowired
     EmployeeRepository employeeRepository;
 
+    @Autowired
+    SequenceGeneratorService sequenceGeneratorService;
+
     public List<Employee> getAll() {
         return employeeRepository.findAll();
     }
 
     public Employee addEmployee(Employee emp) {
+        emp.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
         return employeeRepository.insert(emp);
     }
 }

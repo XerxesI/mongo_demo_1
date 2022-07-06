@@ -3,6 +3,7 @@ package com.progile.mongo;
 import com.progile.mongo.model.Address;
 import com.progile.mongo.model.Employee;
 import com.progile.mongo.repository.EmployeeRepository;
+import com.progile.mongo.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,9 @@ public class MongoDemo1Application implements CommandLineRunner {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
+
+	@Autowired
+	SequenceGeneratorService sequenceGeneratorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MongoDemo1Application.class, args);
@@ -33,10 +37,15 @@ public class MongoDemo1Application implements CommandLineRunner {
 		Employee e4 = new Employee("IRON", "MAN", new Address("Malibu", "Near Ocean", "CA", "CA", 1234), 12000);
 		Employee e5 = new Employee("PROFIT", "MAN", null, 6000);
 
+		e1.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e1);
+		e2.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e2);
+		e3.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e3);
+		e4.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e4);
+		e5.setId(sequenceGeneratorService.generateSequence(Employee.SEQUENCE_NAME));
 		listOfEmployees.add(e5);
 
 		employeeRepository.insert(listOfEmployees);

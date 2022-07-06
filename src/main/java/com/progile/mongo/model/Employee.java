@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.*;
@@ -15,9 +17,14 @@ import static com.fasterxml.jackson.annotation.JsonInclude.*;
 @Setter
 @NoArgsConstructor
 @Document
+@ToString
 public class Employee {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "users_sequence";
+
     @Id
-    @JsonIgnore
+//    @JsonIgnore
     private String id;
     private String firstName;
     private String lastName;
